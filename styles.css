@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  background-color: #131313;
+  color: #ddd;
+  text-align: center;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #121212;
+  transition: all 0.5s ease-in-out;
+}
+
+.loader-svg {
+  width: 7rem;
+  height: 7rem;
+}
+
+.loader-svg path:nth-child(1) {
+  stroke-dasharray: 447;
+  stroke-dashoffset: 447;
+  animation: cake-anim 5s ease-in-out forwards;
+}
+
+.loader-finish {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes cake-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.1rem;
+  font-weight: 500;
+  visibility: hidden;
+  animation: title 4s ease-in-out forwards 3.8s;
+}
+
+.title span {
+  display: inline-block;
+  margin-left: 1rem;
+  color: red;
+  font-size: 2.5rem;
+}
+
+.subtitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.7rem;
+  font-weight: 500;
+  visibility: hidden;
+  animation: title 4s ease-in-out forwards 7.6s;
+}
+
+@keyframes title {
+  0%,
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  50% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.main {
+  visibility: hidden;
+  transform: translateY(10%);
+  animation: main 4s ease-in-out forwards 12s;
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  margin: 0 0 4rem 0;
+}
+
+h4 {
+  font-size: 1.6rem;
+  margin: 0 0 2rem;
+}
+
+.image-box {
+  width: 90%;
+  height: 80vh;
+  flex-shrink: 0;
+  margin: 0 2rem 0 0;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes main {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  50%,
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.prompt {
+  display: none;
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    display: none;
+  }
+  .prompt {
+    display: block;
+    font-size: 2rem;
+  }
+}
